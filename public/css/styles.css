@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+:root {
+
+    --bg-darkmode: #141F2F;
+    --bg-lightmode: #E3E7EE;
+
+    --font-darkmode: #B7B7B7;
+    --font-lightmode: #263956;
+
+    --item-darkmode: #25273C;
+    --item-lightmode:#F7F5F5;
+
+    --check-darckmode:#182233;
+    --check-lightmode:#D1D5DB;
+     }
+
+
+
+
+
+body{
+
+    display: flex;
+    justify-content: space-around;
+    background-image:url(../images/Porsche-911-GT3-RS-\ -\ Copia.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--bg-lightmode);
+    color: #fff;
+    font-family: sans-serif;
+    margin: 0;
+    
+    
+
+}
+
+
+
+.container{
+
+  margin-top: 200px;
+  width: 500px;
+
+}
+
+
+
+.header{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+
+}
+
+h1{
+    flex-grow: 0;
+}
+
+.darkmode-toggle{
+
+    width: 30px;
+    height: 30px;
+    background-image: url("../images/sun.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-grow: 0;
+    background-color: #F7F5F5;
+
+}
+
+
+
+input[type=text] {
+
+    padding: 30px 10px ;
+    font-size: 22px;
+    width: calc(100% - 20px);
+    border: none;
+    margin-bottom: 20px;
+
+}
+
+
+.item {
+    display: flex;
+    align-items: center;
+    background-color: var(--item-lightmode);
+    color:var(--font-lightmode);
+    padding: 10px;
+    height: 30px;
+    font-size: 22px;
+    border-bottom: solid 1px #142c75;
+
+
+}
+
+input[type=checkbox] {
+    width: 30px;
+    height: 30px;
+    margin: 20px;
+
+    
+}
+
+.item-checked{
+    text-decoration: line-through;
+
+}
+
+
+.footer{
+
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--item-lightmode);
+    color: var(--font-lightmode);
+    padding: 20PX 10PX;
+    font-size: 14PX;
+
+}
+
+.footer div {
+margin: 0 5px;
+
+}
+
+.footer a {
+    margin: 0 5px;
+    color: var(--font-lightmode);
+
+}
+
+.footer a:hover {
+    color: #8ac2fe;
+
+
+    
+}
+
+
+
+.footer a.active{
+    color: #116ACC;
+    
+}
+
+
+
+body.darkmode {
+    background-color: var(--bg-darkmode);
+
+}
+
+
+
+.darkmode .darkmode-toggle{
+
+background-image: url(../images/sun.svg);
+    
+
+}
+
+
+
+.darkmode input[type=text] {
+
+   background-color: var(--item-darkmode);
+   color: var(--font-darkmode);
+}
+
+
+
+.darkmode .item {
+
+   background-color: var(--item-darkmode);
+   color: var(--font-darkmode);
+
+}
+
+
+
+.darkmode .footer{
+    background-color: var(--item-darkmode);
+    color: var(--font-darkmode);
+}
+
+
+
+.darkmode input[type=checkbox]:before{
+    background-color: var(--check-darckmode);
+
+}
+
+
+
+.darkmode a{
+    color: var(--font-darkmode);
+}
+
+
+
+
+@media (max-width: 600px) {
+    div.container{
+        margin: top 150px; 
+        width: 90%;
+    }
+    
+    .footer{
+        padding: 10px 0;
+        font-size: 11px;
+
+    }
+}
