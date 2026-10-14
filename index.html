@@ -1,51 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>To-do List - Refatorando</title>
-        <link rel="icon"
-            href="https://cache.refatorando.com/wp-content/uploads/2023/05/Favicon_Refatorando-1-100x100.png"
-            type="image/x-icon">
-        <link rel="stylesheet" href="public/css/styles.css">
-    </head>
-    <body class="darkmode">
-        <div class="container">
-            <div class="header">
-                <h1> To-do-List </h1>
-                <a href="#" class="darkmode-toggle" ></a>
-                </div>
-                <input type="text" placeholder="Insira o To-do-Aqui..." />
-                <div class="item">
-                    <input type="checkbox">
-                    <span class="item-checked" > Ler 10 páginas de um livro </span>
-                </div> 
-                <div class="item">
-                    <input type="checkbox" checked>
-                    <span> Meditar </span>
-                </div>     
-                <div class="item">
-                    <input type="checkbox">
-                    <span> Editar dois videos </span>
-                </div>     
-                <div class="item">
-                    <input type="checkbox">
-                    <span> Criar portifólio </span>
-                </div>     
-                <div class="item">
-                    <input type="checkbox">
-                    <span> Academia </span>
-                </div>         
-                <div class="footer" >
-                    <div>4 itens Restantes </div>
-                    <div class="filter" >
-                        <a href="#todos" class="active" > Todos </a>
-                        <a href="#ativos"> Ativos </a>
-                        <a href="#concluidos"> Concluídos </a>
-                    </div>
-                    <a href="#"> Limpeza Completa </a>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do List - Refatorando</title>
+    <link rel="icon"
+        href="https://cache.refatorando.com/wp-content/uploads/2023/05/Favicon_Refatorando-1-100x100.png"
+        type="image/x-icon">
+    <link rel="stylesheet" href="public/css/styles.css">
+    <script src="public/js/script.js" defer></script>
+</head>
+<body class="darkmode">
+    <main class="container">
+        <header class="header">
+            <h1>To-do List</h1>
+            <button type="button" class="darkmode-toggle" aria-label="Alternar tema claro e escuro"></button>
+        </header>
 
-                </div>
-            </div>
-         </body>
-     </html> 
+        <form class="new-todo">
+            <label for="new-todo-input" class="sr-only">Nova tarefa</label>
+            <input type="text" id="new-todo-input" placeholder="Insira a tarefa aqui e aperte Enter..." autocomplete="off">
+        </form>
+
+        <ul class="todo-list">
+            <li class="item">
+                <input type="checkbox" id="todo-1">
+                <label for="todo-1">Ler 10 páginas de um livro</label>
+                <button type="button" class="delete" aria-label="Excluir tarefa">×</button>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="todo-2" checked>
+                <label for="todo-2">Meditar</label>
+                <button type="button" class="delete" aria-label="Excluir tarefa">×</button>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="todo-3">
+                <label for="todo-3">Editar dois vídeos</label>
+                <button type="button" class="delete" aria-label="Excluir tarefa">×</button>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="todo-4">
+                <label for="todo-4">Criar portfólio</label>
+                <button type="button" class="delete" aria-label="Excluir tarefa">×</button>
+            </li>
+            <li class="item">
+                <input type="checkbox" id="todo-5">
+                <label for="todo-5">Academia</label>
+                <button type="button" class="delete" aria-label="Excluir tarefa">×</button>
+            </li>
+        </ul>
+
+        <footer class="footer">
+            <span class="count">4 itens restantes</span>
+            <nav class="filter" aria-label="Filtrar tarefas">
+                <a href="#todos" class="active">Todos</a>
+                <a href="#ativos">Ativos</a>
+                <a href="#concluidos">Concluídos</a>
+            </nav>
+            <button type="button" class="clear-completed">Limpar concluídos</button>
+        </footer>
+    </main>
+</body>
+</html>
