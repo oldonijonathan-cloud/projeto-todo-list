@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 
 :root {
-
     --bg-darkmode: #141F2F;
     --bg-lightmode: #E3E7EE;
 
@@ -9,209 +8,243 @@
     --font-lightmode: #263956;
 
     --item-darkmode: #25273C;
-    --item-lightmode:#F7F5F5;
+    --item-lightmode: #F7F5F5;
 
-    --check-darckmode:#182233;
-    --check-lightmode:#D1D5DB;
-     }
+    --check-darkmode: #182233;
+    --check-lightmode: #D1D5DB;
 
+    --accent: #116ACC;
+    --accent-hover: #8ac2fe;
+}
 
+* {
+    box-sizing: border-box;
+}
 
-
-
-body{
-
+body {
     display: flex;
-    justify-content: space-around;
-    background-image:url(../images/Porsche-911-GT3-RS-\ -\ Copia.jpg);
-    background-position: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background-image: url("../images/porsche-911-gt3-rs.jpg");
+    background-position: top center;
     background-repeat: no-repeat;
     background-color: var(--bg-lightmode);
     color: #fff;
-    font-family: sans-serif;
-    margin: 0;
-    
-    
-
+    font-family: 'Ubuntu', sans-serif;
 }
 
-
-
-.container{
-
-  margin-top: 200px;
-  width: 500px;
-
+/* Esconde visualmente, mas leitores de tela continuam lendo */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
 }
 
+.container {
+    margin: 200px 0 40px;
+    width: 500px;
+}
 
-
-.header{
-
+/* ===== Cabeçalho ===== */
+.header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-
 }
 
-h1{
-    flex-grow: 0;
+h1 {
+    letter-spacing: 2px;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
 }
 
-.darkmode-toggle{
-
-    width: 30px;
-    height: 30px;
-    background-image: url("../images/sun.svg");
+.darkmode-toggle {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: var(--item-lightmode);
+    background-image: url("../images/moon.svg");
     background-position: center;
     background-repeat: no-repeat;
-    flex-grow: 0;
-    background-color: #F7F5F5;
-
 }
 
-
-
-input[type=text] {
-
-    padding: 30px 10px ;
-    font-size: 22px;
-    width: calc(100% - 20px);
-    border: none;
+/* ===== Campo de nova tarefa ===== */
+.new-todo input[type=text] {
+    width: 100%;
+    padding: 30px 20px;
     margin-bottom: 20px;
-
+    border: none;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 22px;
+    background-color: var(--item-lightmode);
+    color: var(--font-lightmode);
 }
 
+.new-todo input[type=text]:focus {
+    outline: 2px solid var(--accent);
+}
+
+/* ===== Lista ===== */
+.todo-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+}
 
 .item {
     display: flex;
     align-items: center;
-    background-color: var(--item-lightmode);
-    color:var(--font-lightmode);
-    padding: 10px;
-    height: 30px;
+    gap: 16px;
+    padding: 16px 20px;
     font-size: 22px;
-    border-bottom: solid 1px #142c75;
-
-
+    background-color: var(--item-lightmode);
+    color: var(--font-lightmode);
+    border-bottom: solid 1px var(--check-lightmode);
 }
 
-input[type=checkbox] {
-    width: 30px;
-    height: 30px;
-    margin: 20px;
-
-    
+.item input[type=checkbox] {
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    margin: 0;
+    accent-color: var(--accent);
+    cursor: pointer;
 }
 
-.item-checked{
+.item label {
+    flex-grow: 1;
+    cursor: pointer;
+    word-break: break-word;
+}
+
+/* Riscado automático quando a tarefa está marcada */
+.item input[type=checkbox]:checked + label {
     text-decoration: line-through;
-
+    opacity: 0.6;
 }
 
+.delete {
+    border: none;
+    background: none;
+    color: inherit;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
 
-.footer{
+.item:hover .delete,
+.delete:focus-visible {
+    opacity: 0.7;
+}
 
+.delete:hover {
+    opacity: 1;
+}
+
+/* ===== Rodapé ===== */
+.footer {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    font-size: 14px;
     background-color: var(--item-lightmode);
     color: var(--font-lightmode);
-    padding: 20PX 10PX;
-    font-size: 14PX;
-
+    border-radius: 0 0 5px 5px;
 }
 
-.footer div {
-margin: 0 5px;
-
+.filter {
+    display: flex;
+    gap: 10px;
 }
 
-.footer a {
-    margin: 0 5px;
+.footer a,
+.clear-completed {
     color: var(--font-lightmode);
-
+    text-decoration: none;
+    font-family: inherit;
+    font-size: inherit;
 }
 
-.footer a:hover {
-    color: #8ac2fe;
-
-
-    
+.clear-completed {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
 }
 
-
-
-.footer a.active{
-    color: #116ACC;
-    
+.footer a:hover,
+.clear-completed:hover {
+    color: var(--accent-hover);
 }
 
+.footer a.active {
+    color: var(--accent);
+    font-weight: bold;
+}
 
-
+/* ===== Modo escuro ===== */
 body.darkmode {
     background-color: var(--bg-darkmode);
-
 }
 
-
-
-.darkmode .darkmode-toggle{
-
-background-image: url(../images/sun.svg);
-    
-
+.darkmode .darkmode-toggle {
+    background-color: var(--item-darkmode);
+    background-image: url("../images/sun.svg");
 }
 
-
-
-.darkmode input[type=text] {
-
-   background-color: var(--item-darkmode);
-   color: var(--font-darkmode);
-}
-
-
-
-.darkmode .item {
-
-   background-color: var(--item-darkmode);
-   color: var(--font-darkmode);
-
-}
-
-
-
-.darkmode .footer{
+.darkmode .new-todo input[type=text],
+.darkmode .item,
+.darkmode .footer {
     background-color: var(--item-darkmode);
     color: var(--font-darkmode);
 }
 
-
-
-.darkmode input[type=checkbox]:before{
-    background-color: var(--check-darckmode);
-
+.darkmode .item {
+    border-bottom-color: var(--check-darkmode);
 }
 
-
-
-.darkmode a{
+.darkmode .footer a,
+.darkmode .clear-completed {
     color: var(--font-darkmode);
 }
 
+.darkmode .footer a.active {
+    color: var(--accent-hover);
+}
 
-
-
+/* ===== Celular ===== */
 @media (max-width: 600px) {
-    div.container{
-        margin: top 150px; 
+    .container {
+        margin-top: 150px;
         width: 90%;
     }
-    
-    .footer{
-        padding: 10px 0;
-        font-size: 11px;
 
+    .item,
+    .new-todo input[type=text] {
+        font-size: 18px;
+    }
+
+    .footer {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 14px 10px;
+        font-size: 13px;
+    }
+
+    /* No celular não existe hover, então o X fica sempre visível */
+    .delete {
+        opacity: 0.7;
     }
 }
